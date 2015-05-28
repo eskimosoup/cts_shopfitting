@@ -1,0 +1,15 @@
+<% title ClientImage.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ ClientImage.model_name.human }", new_admin_client_client_image_path(@client) %>
+</div>
+
+<%= informant_table @client_images, {
+      :headings => [ '', 'Image', 'Display', 'Display Home', '', '' ], 
+      :body => [ it_sort,
+                it_edit_images(:image),
+                it_ajax_toggle(:display),
+                it_ajax_toggle(:display_home),
+                it_edit,
+                it_destroy ]
+    } %>

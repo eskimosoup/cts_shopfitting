@@ -1,0 +1,41 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<%= javascript_include_tag "google_maps" %>
+
+
+<div class="row">
+  <div class="twelve columns">
+    <h1>Get in touch</h1>
+    
+  </div>
+  <hr />
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <p>A quick chat means the difference between knowing where you want to be and understanding how to get there.</p>
+    <p>For any enquiries, please call or email us. Alternatively, you can use this contact form and a member of our team will reply ASAP.</p>
+    
+    <hr />
+    
+    Tel:&nbsp;<%= SITE_SETTINGS['Telephone Number'] %><br />
+    Fax:&nbsp;<%= SITE_SETTINGS['Fax Number'] %><br />
+    Email:&nbsp;<%= mail_to SITE_SETTINGS['Email'] %><br /><br />
+    
+    <% unless SITE_SETTINGS["Address"].blank? %>
+          <% address_lines = SITE_SETTINGS["Address"].split(",") %>
+            <% address_lines.each do |address_line| %>
+              <%= address_line %><br />
+            <% end %>
+          <% end %>
+          
+  <div id="map-canvas" class="border"></div>
+  
+  </div>
+  
+  
+  
+  <div class="six columns">
+    <%= render "form" %>
+  </div>
+</div>
+

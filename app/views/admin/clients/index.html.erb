@@ -1,0 +1,22 @@
+<% title Client.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  
+  <%= form_tag admin_clients_path, :method => "get" do %>
+    <div class="field">
+      <%= text_field_tag :search, params[:search] %>
+    </div>
+    
+    <div class="actions">
+      <%= submit_tag "Search", :name => nil %>
+    </div>
+  <% end %> 
+  
+  
+  <%= link_to "New #{ Client.model_name.human }", new_admin_client_path %>
+</div>
+
+<%= informant_table @clients, {
+      :headings => [ 'Name', '', '', '' ], 
+      :body => [ :name, lambda{|x| link_to "Images (#{x.client_images_count})", admin_client_client_images_path(x) }, it_edit, it_destroy ]
+    } %>

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1>Honours and Awards</h1>
+    
+    <p>Being accredited is great for us because it confirms that we're doing it right,
+    but it's also great for our clients, as it assures them that our work is carried out to the highest standards,
+    guaranteeing a smooth journey from start to finish.</p>
+    
+    <p>Here are some of our awards and how they can provide you with that essential factor: peace of mind.</p>
+  </div>
+  <hr />
+</div>
+
+<div class="row">
+  
+  <% @awards.each do |award| %>
+  <div class="three columns award-container">
+    <div class="row">
+      <div class="twelve columns">
+        <%= image_tag award.image.show, :alt => award.name, :title => award.name if award.image? %>
+      </div>
+      
+      <div class="twelve columns">
+        <h4><%= award.name %></h4>
+        <p><%= award.content %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+

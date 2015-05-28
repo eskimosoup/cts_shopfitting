@@ -1,0 +1,22 @@
+@media only screen and (max-width: 767px) {
+  #header {
+    .top-bar {
+      margin: 0;
+    }
+    
+    .moved .dropdown {
+      left: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  .top-bar ul > li.toggle-topbar {
+    width: 100%;
+    text-transform: uppercase;
+    color: #ce273b;
+  }
+  
+  .expanded ul > li.toggle-topbar {
+    color: #013c7e;
+  }
+}

@@ -1,0 +1,81 @@
+<div id="header">
+  <div class="row header-info">
+    <div class="six columns">
+       <%= SITE_SETTINGS['Address'] %>
+    </div>
+    
+    <div class="six columns">
+       <span class="right">Tel: <%= SITE_SETTINGS['Telephone Number'] %></span>
+    </div>
+    
+    <hr />
+  </div>
+  
+  <div class="row">
+    <div class="three columns">
+      <%= link_to image_tag(asset_path("/assets/logo.jpg"), :alt => SITE_SETTINGS['Name'], :title => SITE_SETTINGS['Name']), root_url, :title => SITE_SETTINGS['Name'] %>
+    </div>
+    
+    <div class="nine columns">  
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name toggle-topbar">
+          Menu
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="menu-icon"><a href=""></a></li>
+      </ul>
+    
+      <section class="top-bar-section">
+        <% branches = Willow::Branch.includes(:leaf).where(:tree => "Main Navigation").roots.order(:position) %>
+      <ul>
+        <% branches.each do |branch| %>
+        
+          <% unless branch.children.blank? %>
+          <li class="has-dropdown">
+            <% else %>
+          <li>
+          <% end %>
+            <% if @current_branch and (@current_branch == branch or (@current_branch.parent.present? and @current_branch.parent == branch)) %>
+              <%= link_to branch.name, branch.destination, {:accesskey => branch.access_key, :class => "active"} %>
+              
+              
+              <% unless branch.children.blank? %>
+              <ul class="dropdown"> 
+                  <% branch.children.includes(:leaf).order(:position).each do |child| %>
+                    <li>
+                      <%= link_to child.name, child.destination, {:accesskey => child.access_key} %>
+                    </li>
+                  <% end %>
+              </ul>
+              <% end %>
+              <% else %>
+      
+              <%= link_to branch.name, branch.destination, {:accesskey => branch.access_key} %>
+                <% unless branch.children.blank? %>
+                <ul class="dropdown">
+        
+                  <% unless branch.children.blank? %>
+                    <% branch.children.includes(:leaf).order(:position).each do |child| %>
+                      <li>
+                        <%= link_to child.name, child.destination, {:accesskey => child.access_key} %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+                <% end %>
+            <% end %>
+            
+          </li>
+        <% end %>
+      </ul>
+
+      </section>
+    </nav>
+      
+    </div>
+    
+    <hr />
+  </div>
+</div>

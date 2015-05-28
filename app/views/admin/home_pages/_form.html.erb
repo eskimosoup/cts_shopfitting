@@ -1,0 +1,30 @@
+<%= form_for([:admin, @home_page]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+  
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content, :class => "tinymce" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :image %><br />
+      <%= f.image_field :image %><br />
+      <%= f.label :image_link, "Add link to image?" %><br />
+      <%= f.text_field :image_link %>
+    </div>
+    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

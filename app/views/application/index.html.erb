@@ -1,0 +1,96 @@
+<script type="text/javascript">
+   $(window).load(function() {
+       $("#featured").orbit({
+          advanceSpeed: 8000,
+        });
+   });
+</script>
+
+
+<script type="text/javascript">
+
+function mycarousel_initCallback(carousel)
+{
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    carousel.buttonPrev.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+        carousel.stopAuto();
+    }, function() {
+        carousel.startAuto();
+    });
+};
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+        auto: 2,
+        scroll: 1,
+        wrap: 'circular',
+        initCallback: mycarousel_initCallback
+    });
+});
+
+</script>
+
+
+<div id="home">
+   
+  <% unless @banners.blank? %>
+  <div class="row banner-container">
+    <div class="twelve columns">
+      <div id="featured" class="border">
+        <% @banners.each do |banner| %>
+         <%= image_tag banner.image.show, :alt => "#{banner.caption}" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+  <% unless @home_page.blank? %>
+     <% @home_page.each do |home| %>
+  <div class="row">
+    <div class="six columns">
+      <%= raw home.content %>
+    </div>
+    
+    <div class="six columns">
+      <% unless home.image.blank? %>
+         <% if home.image_link.blank? %>
+            <%= image_tag home.image.show, :class => "border", :alt => home.name %>
+         <% else %>
+            <%= link_to image_tag(home.image.show, :class => "border"), home.image_link, :alt => home.name %>
+         <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<% end %>
+  
+  <% unless @client_images.blank? %>
+  <div class="row carousel-container">
+    <div class="twelve columns">
+      <h2>Our Project Gallery</h2>
+      <%= link_to '/galleries' do %>
+      <ul id="mycarousel" class="jcarousel-skin-tango">
+        <% @client_images.each do |image| %>
+        <li><%= image_tag image.image.index, :alt=>image.name if image.image? %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  
+  
+  <% unless @features.blank? %>
+    <%= render "features" %>
+  <% end %>
+

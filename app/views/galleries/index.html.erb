@@ -1,0 +1,25 @@
+<div id="gallery">
+
+<div class="row">
+  <div class="twelve columns">
+    <h1>Photo Gallery</h1>
+  </div>
+  <hr />
+</div>
+
+<% @clients.each do |client| %>
+<div class="row">
+  <div class="twelve columns">
+    <%= image_tag client.logo.index, :alt => client.name, :title => client.name, :class => "center" %><br />
+    <div class="center">
+    <% client.client_images.each do |image| %>
+      <%= link_to image_tag(image.image.thumbnail, :alt => image.name, :class => "gallery-image"), image.image.lightbox.url, :rel => "lightbox-#{client.name}" %>
+    <% end %>
+    </div>
+  </div>
+  
+</div>
+<hr />
+<% end %>
+
+</div>

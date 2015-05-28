@@ -1,0 +1,23 @@
+<%= form_for([:admin, @testimonial]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    
+    <div class="field">
+      <%= f.label :quote %><br />
+      <%= f.text_area :quote %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :author %><br />
+      <%= f.text_field :author %>
+    </div>
+    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

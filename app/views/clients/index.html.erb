@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1>Clients</h1>
+    <p>CTS Shopfitting have undertaken a vast number of projects across the UK with ever expanding national clients.
+    We have been in engaged in new store fit-outs right through to complete refurbishment projects.</p>
+  </div>
+  <hr />
+</div>
+
+
+<% @clients.each do |client| %>
+<% unless client.content.blank? %>
+<div class="row">
+  <div class="six columns">
+    <%= image_tag client.logo, :alt => client.name, :title => client.name, :class => "center client-logo" %>
+    <p><%= raw client.content %></p>
+  </div>
+  
+  <% unless client.client_images.size == 0 %>  
+  <div class="six columns">
+    <div class="featured border">
+      
+      <% client.client_images.each do |image| %>
+      <%= image_tag image.image.index, :alt=>image.name if image.image? %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<hr />
+</div>
+<% end %>
+<% end %>
+
+
+
+<script type="text/javascript">
+   $(window).load(function() {
+       $(".featured").orbit({
+        timer: false,
+        });
+   });
+</script>

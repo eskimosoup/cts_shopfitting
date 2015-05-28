@@ -1,0 +1,20 @@
+<div id="footer">
+  <div class="row">
+    <% unless @footer_awards.blank? %>
+      <% @footer_awards.each do |award| %>
+        <%= image_tag award.image.footer, :alt => award.name, :title => award.name, :class => "footer-image" %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="row">
+    <hr />
+    <div class="six columns">
+      <span>&copy <%= SITE_SETTINGS['Name'] %></span><br /><br />
+    </div>
+    
+    <div class="six columns">
+      
+    </div>
+  </div>
+</div>

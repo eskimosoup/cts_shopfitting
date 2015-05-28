@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1>Staff</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    
+  </div>
+</div>
+
+<% @roles.each do |role| %>
+<div class="row">
+   
+  <div class="twelve columns">
+  <h2 class="team-role-title"><%= role.name %></h2>
+  </div>
+  
+  <% role.team_members.each_slice(3) do |slice| %>
+    <% if slice.size == 1 %>
+      <% slice.each do |team_member| %>
+        <div class="twelve columns">
+          <%= image_tag team_member.image.show, :alt => team_member.name, :title => team_member.name, :class => "center" %><br />
+          <span class="team-member-name"><%= team_member.name %></span>
+        </div>
+      <% end %>
+    <% elsif slice.size == 2 %>
+      <% slice.each do |team_member| %>
+        <div class="six columns">
+          <%= image_tag team_member.image.show, :alt => team_member.name, :title => team_member.name, :class => "center" %><br />
+          <span class="team-member-name"><%= team_member.name %></span>
+        </div>
+      <% end %>
+    <% else %>
+      <% slice.each do |team_member| %>
+        <div class="four columns">
+          <%= image_tag team_member.image.show, :alt => team_member.name, :title => team_member.name, :class => "center" %><br />
+          <span class="team-member-name"><%= team_member.name %></span>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <hr />
+</div>
+<% end %>
+
+

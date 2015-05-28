@@ -1,0 +1,18 @@
+<%= form_for([:admin, @role]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

@@ -1,0 +1,30 @@
+#home {
+    
+    .home-image-link {
+        overflow:hidden;
+    }
+    
+    .image-caption {
+        position: absolute;
+        bottom:0;
+        width:100%; 
+    }
+    
+    .image-caption-inner {
+        background-image:url('/assets/transparency.png');
+        width:100%;
+        p {
+            padding:20px;
+            color:#ccc;
+        }
+    }
+    
+    .banner-container {
+        margin-bottom:40px;
+    }
+    
+    .carousel-container {
+        margin-bottom:40px;
+        margin-top:40px;
+    }
+}

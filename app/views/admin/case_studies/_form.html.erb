@@ -1,0 +1,28 @@
+<%= form_for([:admin, @case_study]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    
+    <div class="field">
+      <%= f.label :client_id %><br />
+      <%= f.select :client_id, Client.all.map{|x| [x.name, x.id]} %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content, :class => "tinymce" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :display, "Display"%><br />
+      <%= f.check_box :display %>
+    </div>
+    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

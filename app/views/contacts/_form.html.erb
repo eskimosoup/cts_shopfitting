@@ -1,0 +1,58 @@
+<%= form_for @contact do |f| %>
+  
+    &nbsp;
+  <% if f.object.errors.any? %>
+    <h3>Sorry, there appears to be a problem.</h3>
+    <ul class="error_messages">
+      <% for message in f.object.errors.full_messages %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+
+<div class="row">
+  
+  <div class="six columns">
+    <div class="field">
+      <%= f.label :firstname, raw("First Name *")%><br />
+      <%= f.text_field :firstname %>
+    </div>
+  </div>
+  
+  <div class="six columns">
+    <div class="field">
+      <%= f.label :lastname, raw("Last Name *") %><br />
+      <%= f.text_field :lastname %>
+    </div>
+  </div>
+  
+  <div class="twelve columns">
+    <div class="field">
+      <%= f.label :email, raw("Email Address *") %><br />
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  
+  <div class="twelve columns">
+    <div class="field">
+      <%= f.label :subject, raw("Subject *") %><br />
+      <%= f.text_field :subject %>
+    </div>
+  </div>
+    
+  <div class="twelve columns">
+    <div class="field">
+      <%= f.label :message, raw("Message *") %><br />
+      <%= f.text_area :message %>
+    </div>
+  </div>
+    
+  <div class="twelve columns">
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+  </div>
+    
+</div> 
+<% end %>

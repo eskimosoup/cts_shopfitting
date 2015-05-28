@@ -1,0 +1,10 @@
+<% title CaseStudy.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ CaseStudy.model_name.human }", new_admin_case_study_path %>
+</div>
+
+<%= informant_table @case_studies, {
+      :headings => [ '', 'Client', 'Display', '', '' ], 
+      :body => [ it_sort, lambda{|x| x.client.name if x.client}, it_ajax_toggle(:display), it_edit, it_destroy ]
+    } %>

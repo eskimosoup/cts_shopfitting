@@ -1,0 +1,10 @@
+<% title Role.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ Role.model_name.human }", new_admin_role_path %>
+</div>
+
+<%= informant_table @roles, {
+      :headings => [ '', 'Name', '', '' ], 
+      :body => [ it_sort, :name, it_edit, it_destroy ]
+    } %>

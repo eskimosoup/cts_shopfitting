@@ -1,0 +1,30 @@
+<div class="row">
+  <% @features.each do |feature| %>
+    <div class="four columns home-image-link">
+      <%= link_to feature.link do  %>
+      <%= image_tag feature.image.show, :alt => feature.caption, :class => "border" %>
+      <div class="row image-caption">
+        <div class="twelve columns">
+          <div class="image-caption-inner">
+            <p class="overlay"><%= feature.caption %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% if @article %>
+    <div class="four columns home-image-link">
+      <%= link_to @article do  %>
+        <%= image_tag @article.image.home, :alt => @article.title, :class => "border" %>
+        <div class="row image-caption">
+          <div class="twelve columns">
+            <div class="image-caption-inner">
+              <p class="overlay"><%= @article.title %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<li><%= link_to 'Pages', main_app.admin_pages_path %></li>
+<li><%= link_to Article.model_name.human.pluralize, main_app.admin_articles_path %></li>
+<li><%= link_to Client.model_name.human.pluralize, main_app.admin_clients_path %></li>
+<li><%= link_to CaseStudy.model_name.human.pluralize, main_app.admin_case_studies_path %></li>
+<li><%= link_to Award.model_name.human.pluralize, main_app.admin_awards_path %></li>
+<li><%= link_to Testimonial.model_name.human.pluralize, main_app.admin_testimonials_path %></li>
+<li><%= link_to TeamMember.model_name.human.pluralize, main_app.admin_team_members_path %></li>
+<li><%= link_to Role.model_name.human.pluralize, main_app.admin_roles_path %></li>
+</ul>
+<h2>Home Page</h2>
+<ul>
+<li><%= link_to HomeBanner.model_name.human.pluralize, main_app.admin_home_banners_path %></li>
+<li><%= link_to HomeFeature.model_name.human.pluralize, main_app.admin_home_features_path %></li>
+<li><%= link_to HomePage.model_name.human.pluralize, main_app.admin_home_pages_path %></li>
+<li><%= link_to 'SEO Entries', main_app.admin_seo_entries_path %></li>
+<%# END OF LIST %>
