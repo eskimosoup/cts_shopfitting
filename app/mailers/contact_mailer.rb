@@ -1,6 +1,6 @@
 class ContactMailer < ActionMailer::Base
-  default from: "from@yoursite.com"
-
+  default from: SITE_SETTINGS['Email']
+  default to: SITE_SETTINGS['Email']
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -8,8 +8,6 @@ class ContactMailer < ActionMailer::Base
   #
   def new_contact(contact)
     @contact = contact
-
-    mail to: SITE_SETTINGS['Email']
-    mail to: "steve.middleton@ctsshopfitting.co.uk"
+    mail subject: "Contact form submitted - #{SITE_SETTINGS['Name']}"
   end
 end
