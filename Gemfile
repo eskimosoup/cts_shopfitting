@@ -17,10 +17,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'capistrano'
 #gem 'debugger'
 
-gem 'informant', :git => 'git@github.com:eskimosoup/informant.git'
-gem 'chronicler', :git => 'git@github.com:eskimosoup/chronicler.git'
-gem 'willow', :git => 'git@github.com:eskimosoup/willow.git'
-gem 'manticore', :git => 'git@github.com:eskimosoup/manticore.git'
-
+gem 'informant', :git => 'git@github.com:eskimosoup/informant.git', :branch => "rails_3"
+gem 'chronicler', :git => 'git@github.com:eskimosoup/chronicler.git', :branch => "rails_3"
+gem 'willow', :git => 'git@github.com:eskimosoup/willow.git', :branch => "rails_3"
+gem 'manticore', :git => 'git@github.com:eskimosoup/manticore.git', :branch => "rails_3"
 gem "jquery-ui-rails"
 gem "friendly_id", "~> 4.0.9"
