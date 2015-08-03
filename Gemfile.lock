@@ -1,24 +1,27 @@
 GIT
   remote: git@github.com:eskimosoup/chronicler.git
-  revision: 059b7362b5a8148206c16d3b332c72dd0aac6d40
+  revision: 3182b1e017f74c6ef733991cfe7232b6b5a1d69a
+  branch: rails_3
   specs:
-    chronicler (0.3.8)
+    chronicler (0.3.7)
       carrierwave
       mini_magick
       rails
 
 GIT
   remote: git@github.com:eskimosoup/informant.git
-  revision: 3c39a672941de2eb757b2e3679d634a69e0048c1
+  revision: 81b3e33e2e40da35acaa5a087d6cd0b217769ac9
+  branch: rails_3
   specs:
-    informant (0.1.5)
+    informant (0.1.4)
       rails
 
 GIT
   remote: git@github.com:eskimosoup/manticore.git
-  revision: 595ba014ab07b6a866c8bb2cd67ea4a104b7c521
+  revision: 5ca719b6617af596040cde9a166e3f3b94ae23b2
+  branch: rails_3
   specs:
-    manticore (0.2.3)
+    manticore (0.2.2)
       cancancan
       chronicler
       coffee-rails
@@ -27,6 +30,7 @@ GIT
       jquery-ui-rails
       json
       kaminari
+      mysql2
       rails
       sass-rails
       therubyracer
@@ -36,7 +40,8 @@ GIT
 
 GIT
   remote: git@github.com:eskimosoup/willow.git
-  revision: 538f90b23208cda1c84378296ff365b33a857ffc
+  revision: 8f21ce8f247f4a3572a3fef5b419bdd53fb77b97
+  branch: rails_3
   specs:
     willow (1.0.0)
       ancestry
