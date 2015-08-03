@@ -8,6 +8,7 @@ class ContactMailer < ActionMailer::Base
   #
   def new_contact(contact)
     @contact = contact
-    mail subject: "Contact form submitted - #{SITE_SETTINGS['Name']}"
+    cc_options = Rails.env.development? ? ["james@optimised.today", "james@eskimosoup.co.uk"] : ["mark.pearson@ctsshopfitting.co.uk", "steve.middleton@ctsshopfitting.co.uk"]
+    mail cc: cc_options, subject: "Contact form submitted - #{SITE_SETTINGS['Name']}"
   end
 end
