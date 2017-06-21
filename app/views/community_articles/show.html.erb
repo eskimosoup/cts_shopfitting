@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1>In the Community</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="row">
+
+  <% unless @community_article.image.blank? %>
+  <div class="twelve columns">
+    <%= image_tag @community_article.image.show, :alt => @community_article.title %>
+  </div>
+  <% end %>
+
+  <div class="twelve columns">
+    <h2><%= @community_article.title %></h2>
+    <p><%= raw @community_article.content %></p>
+  </div>
+  <hr />
+
+
+</div>

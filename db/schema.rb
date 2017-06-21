@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140630151925) do
+ActiveRecord::Schema.define(:version => 20170621101606) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20140630151925) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.integer  "position"
-    t.boolean  "display"
+    t.boolean  "diaplay",        :default => true
     t.boolean  "display_footer", :default => true
+    t.boolean  "display",        :default => true
   end
 
   create_table "case_studies", :force => true do |t|
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20140630151925) do
     t.boolean  "display",      :default => true
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.integer  "position"
+    t.integer  "position",     :default => 0
     t.boolean  "display_home"
   end
 
@@ -84,6 +85,18 @@ ActiveRecord::Schema.define(:version => 20140630151925) do
     t.integer  "client_images_count", :default => 0
     t.integer  "position",            :default => 0
     t.boolean  "gallery_display"
+  end
+
+  create_table "community_articles", :force => true do |t|
+    t.string   "title",       :null => false
+    t.text     "summary"
+    t.text     "content"
+    t.string   "image"
+    t.string   "sub_heading"
+    t.date     "date",        :null => false
+    t.string   "slug"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "friendly_id_slugs", :force => true do |t|
