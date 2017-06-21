@@ -1,0 +1,10 @@
+<% title CommunityArticle.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ CommunityArticle.model_name.human }", new_admin_community_article_path %>
+</div>
+
+<%= informant_table @community_articles, {
+      :headings => [ 'Title', 'Summary', 'Content', 'Image', 'Date', '', '' ],
+      :body => [ :title, it_shorten(:summary), it_edit_images(:image), it_local(:date), it_edit, it_destroy ]
+    } %>

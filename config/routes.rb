@@ -1,81 +1,43 @@
 CtsShopfitting::Application.routes.draw do
-
   get "sitemap" => "application#sitemap"
 
+  resources :team_members, :only => [:index]
+  resources :testimonials, :only => [:index]
+  resources :awards, :only => [:index]
+  resources :case_studies, :only => [:index]
+  resources :clients, :only => [:index]
+  resources :articles, :only => [:index, :show]
+
+  resources :community_articles,
+            :only => [:index, :show],
+            path: 'community-articles'
+
   namespace :admin do
+    # manticore_resources :articles
+    # manticore_resources :team_members
     manticore_resources :seo_entries do
       get 'rebuild_seo', :on => :collection
     end
-  end
-
-
-
-  
-
-  namespace :admin do
     chronicler_resources :home_pages
-  end
-
-  namespace :admin do
     chronicler_resources :home_features
-  end
-
-  namespace :admin do
     chronicler_resources :home_banners
-  end
-
-  namespace :admin do manticore_resources :roles end
-
-  namespace :admin do
-    manticore_resources :team_members
+    manticore_resources :roles
     chronicler_resources :team_members
-  end
-
-  resources :team_members, :only => [:index]
-
-
-  namespace :admin do manticore_resources :testimonials end
-
-  resources :testimonials, :only => [:index]
-
-
-  namespace :admin do
     chronicler_resources :awards
-  end
-
-  resources :awards, :only => [:index]
-
-
-  namespace :admin do manticore_resources :case_studies end
-
-  resources :case_studies, :only => [:index]
-
-
-  namespace :admin do
+    manticore_resources :testimonials
+    manticore_resources :case_studies
     manticore_resources :clients do
       chronicler_resources :client_images
     end
-  end
-
-  resources :clients, :only => [:index]
-
-
-  namespace :admin do
-    manticore_resources :articles
     chronicler_resources :articles
-  end
-
-  resources :articles, :only => [:index, :show]
-
-
-  namespace :admin do
     chronicler_resources :pages
+    chronicler_resources :community_articles
   end
 
   resources :pages, :only => [:show]
 
   resources :contacts, :only => [:new, :create]
-  
+
   get "services" => "application#services"
   get "about" => "application#about_us"
   get "galleries" => "galleries#index"
