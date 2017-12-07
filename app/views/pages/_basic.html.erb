@@ -8,7 +8,7 @@
   </div>
   
   <div class="row">
-    <div class="six columns">
+    <div class="<%= @page.image.present? || @page.image_2.present? ? 'six' : 'twelve' %> columns">
       <%= raw @page.content %>
     </div>
     
