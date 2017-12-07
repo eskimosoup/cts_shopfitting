@@ -12,23 +12,25 @@
       <%= raw @page.content %>
     </div>
     
-    <div class="six columns page-image">
-      <% unless @page.image.blank? %>
-        <% if @page.link.blank? %>
-          <%= image_tag @page.image.show, :alt => @page.title, :class => "border" %>
-        <% else %>
-          <%= link_to image_tag(@page.image.show, :class => "border"), @page.link, :alt => @page.title %>
+    <% if @page.image.present? || @page.image_2.present? %>
+      <div class="six columns page-image">
+        <% unless @page.image.blank? %>
+          <% if @page.link.blank? %>
+            <%= image_tag @page.image.show, :alt => @page.title, :class => "border" %>
+          <% else %>
+            <%= link_to image_tag(@page.image.show, :class => "border"), @page.link, :alt => @page.title %>
+          <% end %>
         <% end %>
-      <% end %>
-      
-      <% unless @page.image_2.blank? %>
-        <% if @page.link_2.blank? %>
-          <%= image_tag @page.image_2.show, :alt => @page.title, :class => "border" %>
-        <% else %>
-          <%= link_to image_tag(@page.image_2.show, :class => "border"), @page.link_2, :alt => @page.title %>
+
+        <% unless @page.image_2.blank? %>
+          <% if @page.link_2.blank? %>
+            <%= image_tag @page.image_2.show, :alt => @page.title, :class => "border" %>
+          <% else %>
+            <%= link_to image_tag(@page.image_2.show, :class => "border"), @page.link_2, :alt => @page.title %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 
 </div>
